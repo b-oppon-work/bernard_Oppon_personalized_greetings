@@ -1,0 +1,28 @@
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Ignore Terraform plan output
+*.tfplan
+
+# Ignore .terraform directory (used for plugins and providers)
+.terraform/
+
+# Ignore SSH private keys
+*.pem
+
+# Ignore local configuration override
+terraform.tfvars
+*.auto.tfvars
+
+# Ignore sensitive data files (if any)
+.env
+secrets.yaml
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
