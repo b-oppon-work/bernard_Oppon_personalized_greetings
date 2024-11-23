@@ -22,6 +22,7 @@ resource "aws_key_pair" "generated_key" {
 resource "aws_instance" "ec2_instance" {
   ami           = var.ami
   instance_type = var.instance_type
+  subnet_id     = var.subnet_id  # Specify the subnet for the EC2 instance
 
   key_name = aws_key_pair.generated_key.key_name
 

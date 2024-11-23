@@ -21,4 +21,21 @@ module "ec2" {
     Environment = "Dev"
     Project     = "Personalized-Greetings"
   }
+  
+  # Place EC2 in the first public subnet
+  subnet_id = element(module.vpc.public_subnet_ids, 0)
+}
+
+
+
+module "vpc" {
+  source               = "../modules/vpc"
+  cidr_block           = "10.0.0.0/16"
+  vpc_name             = "Personalized-Greetings-VPC"
+  public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  private_subnet_cidrs = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+  default_tags = {
+    Environment = "Dev"
+    Project     = "Personalized-Greetings"
+  }
 }
